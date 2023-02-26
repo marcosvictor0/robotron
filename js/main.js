@@ -17,16 +17,22 @@
 
 // dizerOla('Marcos')
 
+const controle = document.querySelectorAll(".controle-ajuste")
+
+console.log(controle)
+
 const subtrair = document.getElementById("subtrair")
 const somar = document.getElementById("somar")
 const braco = document.getElementById("braco")
 
-somar.addEventListener("click", (evento)=> {
-  let valor = parseInt(braco.value) 
-    braco.value = valor + 1
-})  
+somar.addEventListener("click", ()=> { manipularDados("somar")})  
 
-subtrair.addEventListener("click", (evento)=> {
-    let valor = parseInt(braco.value)
-    braco.value = valor - 1
-})
+subtrair.addEventListener("click", ()=> { manipularDados("subtrair")})
+
+function manipularDados(operacao) {
+    if (operacao === "somar"){
+        braco.value = parseInt(braco.value) + 1
+    } else {
+        braco.value = parseInt(braco.value) - 1
+    }
+}
