@@ -17,20 +17,12 @@
 
 // dizerOla('Marcos')
 
-
-const subtrair = document.getElementById("subtrair")
-const somar = document.getElementById("somar")
-const braco = document.getElementById("braco")
-const controle = document.querySelectorAll(".controle-ajuste")
-const parteDoRobo = document.querySelectorAll(".peca-titulo")
-
-parteDoRobo.forEach((elemento) => {
-   console.log(elemento.innerText)
-})
+const controle = document.querySelectorAll("[data-controle]")
+console.log(controle)
 
 controle.forEach( (elemento) => {
     elemento.addEventListener("click", (evento) =>{
-        manipularDados((evento.target.textContent))
+        manipularDados(evento.target.dataset.controle, evento.target.parentNode)
     })
 })
 
@@ -38,10 +30,11 @@ controle.forEach( (elemento) => {
 
 // subtrair.addEventListener("click", ()=> { manipularDados("subtrair")})
 
-function manipularDados(partedoRobo, operacao) {
+function manipularDados(operacao, controle) {
+    const peca = controle.querySelector("[data-contador")
     if (operacao === "+"){
-        braco.value = parseInt(braco.value) + 1
+        peca.value = parseInt(peca.value) + 1
     } else {
-        braco.value = parseInt(braco.value) - 1
+        peca.value = parseInt(peca.value) - 1
     }
 }
